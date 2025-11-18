@@ -5,21 +5,21 @@
 class Goplaying < Formula
   desc "Cross-platform Spotify Now Playing TUI for Linux and macOS"
   homepage "https://github.com/justinmdickey/goplaying"
-  version "0.1.2"
+  version "0.1.3"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/justinmdickey/goplaying/releases/download/v0.1.2/goplaying_0.1.2_Darwin_x86_64.tar.gz"
-      sha256 "4cb56ffd4b3e5eed0fe295879fef2aae72d15ffa2e3d24ae71bb653d0b711f69"
+      url "https://github.com/justinmdickey/goplaying/releases/download/v0.1.3/goplaying_0.1.3_Darwin_x86_64.tar.gz"
+      sha256 "d2ead7e449c954f5694e7d5d6aa7e96039075060b92a8e93450149d0c487af32"
 
       def install
         bin.install "goplaying"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/justinmdickey/goplaying/releases/download/v0.1.2/goplaying_0.1.2_Darwin_arm64.tar.gz"
-      sha256 "655532f08d9df5fdaa61bbd81221710b0aef1c91a303cc6a4108a8db76e2aba4"
+      url "https://github.com/justinmdickey/goplaying/releases/download/v0.1.3/goplaying_0.1.3_Darwin_arm64.tar.gz"
+      sha256 "fa014842be8291994b605e7dff9adc95fc9abb64ff0558f97a95c8b7384cedf5"
 
       def install
         bin.install "goplaying"
@@ -29,15 +29,15 @@ class Goplaying < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/justinmdickey/goplaying/releases/download/v0.1.2/goplaying_0.1.2_Linux_x86_64.tar.gz"
-      sha256 "de7a42aaeb8bf2d355848a7e9107e46be6659c10765b89a99ea7bfc765ba3be0"
+      url "https://github.com/justinmdickey/goplaying/releases/download/v0.1.3/goplaying_0.1.3_Linux_x86_64.tar.gz"
+      sha256 "7e942e26535aea72097efa31a7c32cb85aaff206414bad54e3c231c3775216ab"
       def install
         bin.install "goplaying"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/justinmdickey/goplaying/releases/download/v0.1.2/goplaying_0.1.2_Linux_arm64.tar.gz"
-      sha256 "04b3b665652c8257db8470f3bd6a5471dbc5a5d3e01710292dbe14c3be358d88"
+      url "https://github.com/justinmdickey/goplaying/releases/download/v0.1.3/goplaying_0.1.3_Linux_arm64.tar.gz"
+      sha256 "b28b0da39b97580edb5ccd5935e38d68485029260b397c97965929cf0077b849"
       def install
         bin.install "goplaying"
       end
