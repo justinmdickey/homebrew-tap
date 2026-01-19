@@ -5,21 +5,21 @@
 class Goplaying < Formula
   desc "Cross-platform Now Playing TUI for Spotify, Apple Music, and more"
   homepage "https://github.com/justinmdickey/goplaying"
-  version "0.1.4"
+  version "0.2.0"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/justinmdickey/goplaying/releases/download/v0.1.4/goplaying_0.1.4_Darwin_x86_64.tar.gz"
-      sha256 "ca63e0ac0115e3f2d4007969cc4a9f9ffc3c01b6233c959947455a702ae4e7ef"
+      url "https://github.com/justinmdickey/goplaying/releases/download/v0.2.0/goplaying_0.2.0_Darwin_x86_64.tar.gz"
+      sha256 "e12456ae09cd97af3a44a91a4da828d356963fb49011cf22462f4b4b9ff68a6d"
 
       def install
         bin.install "goplaying"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/justinmdickey/goplaying/releases/download/v0.1.4/goplaying_0.1.4_Darwin_arm64.tar.gz"
-      sha256 "3ed85658d91234a5f6e33f46185ff37e304d1bf62e246b6822c91def9b8b68e1"
+      url "https://github.com/justinmdickey/goplaying/releases/download/v0.2.0/goplaying_0.2.0_Darwin_arm64.tar.gz"
+      sha256 "9c5f74584b5e1808c25096867123ff0c4a821512ef6fab553c8f67361901961d"
 
       def install
         bin.install "goplaying"
@@ -29,15 +29,15 @@ class Goplaying < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/justinmdickey/goplaying/releases/download/v0.1.4/goplaying_0.1.4_Linux_x86_64.tar.gz"
-      sha256 "ae472f99ae8c1199a73d758a09f1e118748e6a6fde178e174641095cc7985eae"
+      url "https://github.com/justinmdickey/goplaying/releases/download/v0.2.0/goplaying_0.2.0_Linux_x86_64.tar.gz"
+      sha256 "b9081fd1be4a513e29d4e9e079581243e40be5a0e106176c2860e1d63275d56a"
       def install
         bin.install "goplaying"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/justinmdickey/goplaying/releases/download/v0.1.4/goplaying_0.1.4_Linux_arm64.tar.gz"
-      sha256 "3eb3f1bdcd5bf4ab72b81c6245d69c43d78a99d63fb539307b037a4d34f72d72"
+      url "https://github.com/justinmdickey/goplaying/releases/download/v0.2.0/goplaying_0.2.0_Linux_arm64.tar.gz"
+      sha256 "301e9e9b85b2a81be334e94aa1738b572e5b4d4be495b6ba0c65ec4390e14d8b"
       def install
         bin.install "goplaying"
       end
@@ -46,8 +46,12 @@ class Goplaying < Formula
 
   def caveats
     <<~EOS
-      On macOS: Supports Spotify and Apple Music (uses AppleScript)
-      On Linux: Requires playerctl to be installed separately
+      macOS:
+        - Album artwork works with Spotify and Apple Music via AppleScript
+        - For broader app support (Safari, Chrome, etc.), build the Swift helper with 'make darwin'
+      Linux:
+        - Requires playerctl to be installed separately
+        - Album artwork works with any MPRIS player that provides artwork
     EOS
   end
 
