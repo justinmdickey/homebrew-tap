@@ -5,53 +5,38 @@
 class Goplaying < Formula
   desc "Cross-platform Now Playing TUI for Spotify, Apple Music, and more"
   homepage "https://github.com/justinmdickey/goplaying"
-  version "0.3.6"
+  version "0.0.0-test.3"
   license "MIT"
+  depends_on :macos
 
-  on_macos do
-    if Hardware::CPU.intel?
-      url "https://github.com/justinmdickey/goplaying/releases/download/v0.3.6/goplaying_0.3.6_Darwin_x86_64.tar.gz"
-      sha256 "b253cdb7837591c2dfa7af7fa1df4edcca3665f69312e6a501f75d381fdc7af1"
+  if Hardware::CPU.intel?
+    url "https://github.com/justinmdickey/goplaying/releases/download/v0.0.0-test.3/goplaying_0.0.0-test.3_Darwin_x86_64.tar.gz"
+    sha256 "4d697dbf0ae09e73b6f13fbb3bf549cd7a9b9afe1dc65342c989f4909a18e1a7"
 
-      define_method(:install) do
-        bin.install "goplaying"
-      end
-    end
-    if Hardware::CPU.arm?
-      url "https://github.com/justinmdickey/goplaying/releases/download/v0.3.6/goplaying_0.3.6_Darwin_arm64.tar.gz"
-      sha256 "fba2e9b9cf4c00d4bac7c952f6f476ed5c917ef1ed5a28d14ccfc01585506c2b"
-
-      define_method(:install) do
-        bin.install "goplaying"
-      end
+    define_method(:install) do
+      bin.install "goplaying"
+      bin.install "nowplaying"
     end
   end
+  if Hardware::CPU.arm?
+    url "https://github.com/justinmdickey/goplaying/releases/download/v0.0.0-test.3/goplaying_0.0.0-test.3_Darwin_arm64.tar.gz"
+    sha256 "c22ac2e11976455d02e4f275c09167057e6734086db52c36cf4f59d1f7260082"
 
-  on_linux do
-    if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/justinmdickey/goplaying/releases/download/v0.3.6/goplaying_0.3.6_Linux_x86_64.tar.gz"
-      sha256 "1dd0256d1f68054fb3f1b49aa5f29ad6e3f54d21876a3b919e89d2469988bb02"
-      define_method(:install) do
-        bin.install "goplaying"
-      end
-    end
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/justinmdickey/goplaying/releases/download/v0.3.6/goplaying_0.3.6_Linux_arm64.tar.gz"
-      sha256 "bec5e3be5cc27a6929a5353eb3c9d964bb359bc6841cf47ac31c7f0d05bec977"
-      define_method(:install) do
-        bin.install "goplaying"
-      end
+    define_method(:install) do
+      bin.install "goplaying"
+      bin.install "nowplaying"
     end
   end
 
   def caveats
     <<~EOS
       macOS:
-        - Album artwork works with Spotify and Apple Music via AppleScript
-        - For broader app support (Safari, Chrome, etc.), build the Swift helper with 'make darwin'
+        - The nowplaying helper is included for broad Now Playing support
+          (Safari, Chrome, and any app that reports to macOS Media Center)
+        - Album artwork works with Spotify, Apple Music, and more
       Linux:
+        - Install via GitHub releases (Homebrew formula is macOS-only)
         - Requires playerctl to be installed separately
-        - Album artwork works with any MPRIS player that provides artwork
     EOS
   end
 
