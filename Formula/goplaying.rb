@@ -5,13 +5,13 @@
 class Goplaying < Formula
   desc "Cross-platform Now Playing TUI for Spotify, Apple Music, and more"
   homepage "https://github.com/justinmdickey/goplaying"
-  version "0.3.7"
+  version "0.3.8"
   license "MIT"
   depends_on :macos
 
   if Hardware::CPU.intel?
-    url "https://github.com/justinmdickey/goplaying/releases/download/v0.3.7/goplaying_0.3.7_Darwin_x86_64.tar.gz"
-    sha256 "4aafbc0f9a1d4804c79ef77469c4eba83a8b2e12c031b8549bd2a4719f4327b9"
+    url "https://github.com/justinmdickey/goplaying/releases/download/v0.3.8/goplaying_0.3.8_Darwin_x86_64.tar.gz"
+    sha256 "91fa4906d1d24f79fd79155e9308f31ef4d1fd559d2b25fce30810476f8f29d1"
 
     define_method(:install) do
       bin.install "goplaying"
@@ -19,8 +19,8 @@ class Goplaying < Formula
     end
   end
   if Hardware::CPU.arm?
-    url "https://github.com/justinmdickey/goplaying/releases/download/v0.3.7/goplaying_0.3.7_Darwin_arm64.tar.gz"
-    sha256 "25967438091003313d093b538e58382c688aed5548186009295d9cea6da82b95"
+    url "https://github.com/justinmdickey/goplaying/releases/download/v0.3.8/goplaying_0.3.8_Darwin_arm64.tar.gz"
+    sha256 "d29c9cf2065581d29b52b9c3bcf95980557007b5ac3ea5691d5195e03c878e22"
 
     define_method(:install) do
       bin.install "goplaying"
