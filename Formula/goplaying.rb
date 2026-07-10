@@ -11,7 +11,7 @@ class Goplaying < Formula
 
   if Hardware::CPU.intel?
     url "https://github.com/justinmdickey/goplaying/releases/download/v0.3.8/goplaying_0.3.8_Darwin_x86_64.tar.gz"
-    sha256 "91fa4906d1d24f79fd79155e9308f31ef4d1fd559d2b25fce30810476f8f29d1"
+    sha256 "c74b5e69f6c231a4bdb0db2a460c4b1e91f9cbc5b816b76bffef8a713d6c36d4"
 
     define_method(:install) do
       bin.install "goplaying"
@@ -20,7 +20,7 @@ class Goplaying < Formula
   end
   if Hardware::CPU.arm?
     url "https://github.com/justinmdickey/goplaying/releases/download/v0.3.8/goplaying_0.3.8_Darwin_arm64.tar.gz"
-    sha256 "d29c9cf2065581d29b52b9c3bcf95980557007b5ac3ea5691d5195e03c878e22"
+    sha256 "b3e4ca878d58fc1c455d5af37d8d4040c1cbc0a5e96427461c5d61f91441d083"
 
     define_method(:install) do
       bin.install "goplaying"
