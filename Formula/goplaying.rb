@@ -5,33 +5,33 @@
 class Goplaying < Formula
   desc "Cross-platform Now Playing TUI for Spotify, Apple Music, and more"
   homepage "https://github.com/justinmdickey/goplaying"
-  version "0.3.10"
+  version "0.3.11"
   license "MIT"
   depends_on :macos
 
   if Hardware::CPU.intel?
-    url "https://github.com/justinmdickey/goplaying/releases/download/v0.3.10/goplaying_0.3.10_Darwin_x86_64.tar.gz"
-    sha256 "3e00483366dccf9a38867046c2299e635b050a773daede50d8b9cd3ccbbf0c75"
+    url "https://github.com/justinmdickey/goplaying/releases/download/v0.3.11/goplaying_0.3.11_Darwin_x86_64.tar.gz"
+    sha256 "618689e58a3380e1eef700ef3ed6c52c9cd6451e4c2a3727ffc8397554dd8922"
 
     define_method(:install) do
       bin.install "goplaying"
-      bin.install "nowplaying"
+      libexec.install "libnowplaying.dylib"
     end
   end
   if Hardware::CPU.arm?
-    url "https://github.com/justinmdickey/goplaying/releases/download/v0.3.10/goplaying_0.3.10_Darwin_arm64.tar.gz"
-    sha256 "26bf7898662f896e1ff6d19565c08dfb06369a0bfeb29628c7160e92985fbc0e"
+    url "https://github.com/justinmdickey/goplaying/releases/download/v0.3.11/goplaying_0.3.11_Darwin_arm64.tar.gz"
+    sha256 "dc87ddfe26c19198b18d4597d41dc35e8fb67f77f9d094c61d3a1b49e78c1246"
 
     define_method(:install) do
       bin.install "goplaying"
-      bin.install "nowplaying"
+      libexec.install "libnowplaying.dylib"
     end
   end
 
   def caveats
     <<~EOS
       macOS:
-        - The nowplaying helper is included for broad Now Playing support
+        - The libnowplaying.dylib helper is included for broad Now Playing support
           (Safari, Chrome, and any app that reports to macOS Media Center)
         - Album artwork works with Spotify, Apple Music, and more
       Linux:
